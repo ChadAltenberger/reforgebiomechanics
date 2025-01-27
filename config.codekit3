@@ -80,6 +80,87 @@
       "oAP" : "\/dist\/assets\/fonts\/bootstrap-icons.woff2",
       "oF" : 0
     },
+    "\/src\/assets\/img\/favicon\/android-chrome-192x192.png" : {
+      "ft" : 32768,
+      "iS" : 12057,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/favicon\/android-chrome-192x192.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/img\/favicon\/android-chrome-512x512.png" : {
+      "ft" : 32768,
+      "iS" : 54327,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/favicon\/android-chrome-512x512.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/img\/favicon\/apple-touch-icon.png" : {
+      "ft" : 32768,
+      "iS" : 10814,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/favicon\/apple-touch-icon.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/img\/favicon\/favicon-16x16.png" : {
+      "ft" : 32768,
+      "iS" : 446,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/favicon\/favicon-16x16.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/img\/favicon\/favicon-32x32.png" : {
+      "ft" : 32768,
+      "iS" : 1060,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/favicon\/favicon-32x32.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/img\/favicon\/favicon.ico" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 2,
+      "oAP" : "\/dist\/assets\/img\/favicon\/favicon.ico",
+      "oF" : 0
+    },
+    "\/src\/assets\/img\/favicon\/site.webmanifest" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 2,
+      "oAP" : "\/dist\/assets\/img\/favicon\/site.webmanifest",
+      "oF" : 0
+    },
     "\/src\/assets\/js\/base\/_jquery-global.js" : {
       "bF" : 4,
       "ft" : 64,
