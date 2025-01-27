@@ -1,0 +1,69 @@
+<nav id="main-nav" class="navbar navbar-expand-lg navbar-dark bg-primary shadow fixed-top py-lg-0">
+	<div class="container-fluid">
+		<!-- ====================== LOGO ======================= -->
+		<li class="nav-item d-flex justify-content-lg-center align-items-center mx-lg-4 d-none d-lg-block">
+			<a class="navbar-brand me-0" href="<!-- $path? -->index.html">
+				<!-- @import svg/sam-flag -->
+			</a>
+		</li>
+		<!-- ================== MOBILE TOGGLE ================== -->
+		<button class="navbar-toggler animated-toggler ms-auto" type="button" aria-controls="offcanvas-navbar">
+			<span class="burger-top"></span>
+			<span class="burger-mdl"></span>
+			<span class="burger-btm"></span>
+		</button>
+		<!-- ====================== MENU ======================= -->
+		<div id="offcanvas-navbar" class="offcanvas offcanvas-end bg-primary" tabindex="-1" aria-labelledby="offcanvas-navbarLabel">
+			<div class="offcanvas-header">
+				<a href="<!-- $path? -->index.html">
+					<h5 id="offcanvas-navbarLabel" class="offcanvas-title text-secondary">M Go Blue</h5>
+				</a>
+				<button class="btn-close btn-close-white" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body bg-primary">
+				<ul class="navbar-nav  align-items-lg-center flex-grow-1">
+					<!-- ===================== Page One ====================== -->
+					<li class="nav-item dropdown d-flex flex-column flex-lg-row justify-content-lg-center align-items-lg-center">
+						<a class="nav-link dropdown-toggle accordion lh-1 text-secondary py-0 px-lg-5 <!-- $inform? -->" href="#" data-bs-toggle="dropdown" aria-expanded="false">Page One</a>
+						<ul class="dropdown-menu bg-transparent py-0 mt-2 mt-lg-0">
+							<li class="bg-secondary text-center mb-3 mb-lg-0">
+								<a class="dropdown-item text-uppercase py-3" href="#">Dropdown 1</a>
+							</li>
+							<li class="bg-secondary text-center mb-3 mb-lg-0">
+								<a class="dropdown-item text-uppercase py-3" href="#">Dropdown 2</a>
+							</li>
+							<li class="bg-secondary text-center mb-3 mb-lg-0">
+								<a class="dropdown-item text-uppercase py-3" href="#">Dropdown 3</a>
+							</li>
+						</ul>
+					</li>
+					<!-- ===================== Page Two ====================== -->
+					<li class="nav-item dropdown d-flex flex-column flex-lg-row justify-content-lg-center align-items-lg-center mt-3 mt-lg-0">
+						<a class="nav-link dropdown-toggle accordion lh-1 text-secondary py-0 px-lg-5 <!-- $invest? -->" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+							Page Two
+						</a>
+						<ul class="dropdown-menu bg-transparent py-0 mt-2 mt-lg-0">
+							<li class="bg-secondary text-center mb-3 mb-lg-0">
+								<a class="dropdown-item text-uppercase py-3" href="#">Dropdown 1</a>
+							</li>
+							<li class="bg-secondary text-center mb-3 mb-lg-0">
+								<a class="dropdown-item text-uppercase py-3" href="#">Dropdown 2</a>
+							</li>
+							<li class="bg-secondary text-center mb-3 mb-lg-0">
+								<a class="dropdown-item text-uppercase py-3" href="#">Dropdown 3</a>
+							</li>
+						</ul>
+					</li>
+					<!-- ===================== Page Three ====================== -->
+					<li class="nav-item d-flex justify-content-lg-center align-items-center mt-3 mt-lg-0">
+						<a class="nav-link lh-1 text-secondary px-lg-5 <!-- $impact? -->" href="#">Page Three</a>
+					</li>
+					<!-- ==================== GIVE NOW ===================== -->
+					<li class="nav-item d-flex justify-content-lg-center align-items-center">
+						<a class="nav-link lh-1 text-secondary px-lg-5" href="#" target="_blank">Give Now</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,23 @@
+section {
+    padding: 5rem 0;
+}
+
+.container-flush {
+    @include container-flush; // Apply default padding
+
+    @each $breakpoint in (sm, md, lg, xl, xxl, xxl2, xxl3, xxl4) {
+        &-#{$breakpoint} {
+            &-up {
+                @include media-breakpoint-up(#{$breakpoint}) {
+                    @include container-flush($pe: calc(var(--bs-gutter-x) * 0.5), $ps: calc(var(--bs-gutter-x) * 0.5));
+                }
+            }
+
+            &-down {
+                @include media-breakpoint-down(#{$breakpoint}) {
+                    @include container-flush;
+                }
+            }
+        }
+    }
+}
