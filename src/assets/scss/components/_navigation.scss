@@ -74,16 +74,20 @@
     }
 
     .navbar-brand {
-        #sam-flag {
-            width: 2rem;
-
-            .cls-1 {
-                fill: $secondary;
-            }
+        .nav-logo {
+            width: 9rem;
         }
     }
 
     .nav-item {
+        &.nav-item-logo {
+            transition: transform 0.3s ease-in-out;
+
+            .nav-logo {
+                transition: width 0.3s ease-in-out;
+            }
+        }
+
         .nav-link {
             text-transform: uppercase;
         }
@@ -91,100 +95,18 @@
 
     /* ======================= MOBILE ======================= */
     @include media-breakpoint-down(lg) {
-        #offcanvas-navbar {
-            .nav-item {
-                &.dropdown {
-                    .dropdown-toggle {
-                        &::after {
-                            display: none !important;
-                        }
-                    }
-                    .dropdown-menu {
-                        display: block;
-
-                        li {
-                            position: relative;
-                            border-bottom: 2px solid $primary;
-
-                            .dropdown-item {
-                                position: relative;
-                                z-index: 1;
-                                transition: color 0.25s, transform 0.25s;
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 
     /* ======================= DESKTOP ====================== */
     @include media-breakpoint-up(lg) {
-        #offcanvas-navbar {
-            .nav-item {
-                .nav-link {
-                    height: 75px; // Make sure .nav-link is set to height of navbar
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    transition: opacity 0.25s;
+    }
 
-                    // Active menu item
-                    &.active {
-                        opacity: 0.5;
-                    }
-                }
+    &.scrolled {
+        .nav-item-logo {
+            margin-left: 0 !important;
 
-                &.dropdown {
-                    .dropdown-toggle {
-                        &::after {
-                            display: none !important;
-                        }
-                    }
-                    .dropdown-menu {
-                        // DEFAULT FOR HOVERABLE DROPDOWN
-                        display: block;
-                        top: 100%;
-                        transform: scaleY(0);
-                        transform-origin: top;
-                        opacity: 0;
-                        transition: transform 0.3s, opacity 0.3s;
-                        // DEFAULT FOR HOVERABLE DROPDOWN
-
-                        li {
-                            position: relative;
-                            border-bottom: 2px solid $primary;
-
-                            .dropdown-item {
-                                position: relative;
-                                z-index: 1;
-                                transition: color 0.25s, background-color 0.25s;
-                            }
-
-                            // Dropdown item on hover
-                            &:hover {
-                                .dropdown-item {
-                                    background-color: $primary;
-                                    color: $white;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                // DEFAULT FOR HOVERABLE DROPDOWN
-                // Make sure .nav-item is the hover trigger
-                &:hover {
-                    .nav-link {
-                        opacity: 0.5;
-                    }
-
-                    .dropdown-menu {
-                        transform: scaleY(1);
-                        opacity: 1;
-                    }
-                }
-                // DEFAULT FOR HOVERABLE DROPDOWN
+            .nav-logo {
+                width: 2.5rem;
             }
         }
     }

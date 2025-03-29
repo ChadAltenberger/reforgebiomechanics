@@ -1,6 +1,6 @@
 // Fonts
-$font-primary: "PRIMARY-FONT-NAME", Helvetica, sans-serif;
-$font-secondary: "SECONDARY-FONT-NAME", Helvetica, sans-serif;
+$font-primary: "Open Sans", sans-serif;
+// $font-secondary: "SECONDARY-FONT-NAME", Helvetica, sans-serif;
 
 // Bootstrap Icons - fonts
 $bootstrap-icons-font-src: url("../fonts/bootstrap-icons.woff2") format("woff2"), url("../fonts/bootstrap-icons.woff") format("woff") !default;
@@ -22,8 +22,20 @@ $body-bg: #ffffff;
 // $body-color: ;
 
 $font-family-base: $font-primary;
-$headings-font-family: $font-secondary;
+// $headings-font-family: $font-secondary;
 $headings-color: $primary;
+
+$display-font-weight: inherit !default;
+
+// scss-docs-start display-headings
+$display-font-sizes: (
+    1: 7rem,
+    2: 4.5rem,
+    3: 4rem,
+    4: 3.5rem,
+    5: 3rem,
+    6: 2.5rem,
+) !default;
 
 // $hr-border-color:   ;
 // $hr-border-width:  	;

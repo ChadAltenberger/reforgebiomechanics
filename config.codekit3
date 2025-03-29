@@ -161,6 +161,32 @@
       "oAP" : "\/dist\/assets\/img\/favicon\/site.webmanifest",
       "oF" : 0
     },
+    "\/src\/assets\/img\/header-image.jpg" : {
+      "ft" : 16384,
+      "iS" : 171894,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/header-image.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/img\/reforge-logo-white.png" : {
+      "ft" : 32768,
+      "iS" : 224469,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/reforge-logo-white.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
     "\/src\/assets\/js\/base\/_jquery-global.js" : {
       "bF" : 4,
       "ft" : 64,
@@ -179,6 +205,17 @@
       "mi" : 1,
       "oA" : 1,
       "oAP" : "\/dist\/assets\/js\/_utilities.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/src\/assets\/js\/components\/_animate-headings.js" : {
+      "bF" : 4,
+      "ft" : 64,
+      "ma" : 3,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/dist\/assets\/js\/_animate-headings.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0

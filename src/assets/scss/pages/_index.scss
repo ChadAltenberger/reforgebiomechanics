@@ -1,1 +1,61 @@
-#main-index {}
+#main-index {
+    #index-header {
+        position: relative;
+        height: 80vh;
+
+        @include media-breakpoint-up(lg) {
+            height: 100vh;
+        }
+
+        .img-wrapper {
+            position: absolute;
+            top: 205px;
+            left: 0;
+            transform: translateX(-100%);
+            width: 85%;
+            height: calc(100% - 205px);
+            overflow: hidden;
+            opacity: 0;
+            z-index: 0;
+            transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                min-width: 100%;
+                min-height: 100%;
+                object-fit: cover;
+            }
+
+            .content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -60%);
+                opacity: 0;
+                transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+                transition-delay: 0.8s;
+
+                h1 {
+                    line-height: 0.9;
+                }
+
+                .tagline {
+                    letter-spacing: 1.5rem;
+                }
+            }
+
+            &.animate {
+                transform: translateX(0);
+                opacity: 1;
+
+                .content {
+                    transform: translate(-50%, -50%);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
