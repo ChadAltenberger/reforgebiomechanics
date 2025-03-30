@@ -4,6 +4,32 @@ section {
     }
 }
 
+.accent-container {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 45px;
+        height: 45px;
+        background: url("../img/elements/corner-accent.svg") no-repeat center center / cover;
+        opacity: 0.65;
+        z-index: 1;
+    }
+
+    &-top {
+        &::before {
+            bottom: auto;
+            right: auto;
+            top: 1.5rem;
+            left: 1.5rem;
+            transform: rotate(180deg);
+        }
+    }
+}
+
 .container-flush {
     @include container-flush; // Apply default padding
 

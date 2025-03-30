@@ -1,0 +1,26 @@
+#services-and-rates {
+    img.action-img {
+        width: auto;
+        height: 30rem;
+
+        @include media-breakpoint-up(lg) {
+            height: 40rem;
+        }
+
+        @include media-breakpoint-up(xl) {
+            height: 32rem;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            height: 35rem;
+        }
+
+        @include media-breakpoint-up(xxl2) {
+            height: 40rem;
+        }
+
+        @include media-breakpoint-up(xxl3) {
+            height: 44rem;
+        }
+    }
+}

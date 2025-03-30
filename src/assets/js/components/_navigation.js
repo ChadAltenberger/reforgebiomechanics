@@ -1,4 +1,5 @@
 import { Offcanvas } from "bootstrap";
+import { utl_pageId } from "../base/_utilities.js";
 
 export default function navigationInit() {
     document.addEventListener("DOMContentLoaded", function () {
@@ -6,18 +7,20 @@ export default function navigationInit() {
         const dropdownToggles = document.querySelectorAll(".nav-item.dropdown");
         const toggler = document.querySelector(".animated-toggler");
         const bsOffcanvas = new Offcanvas("#offcanvas-navbar");
-        const mainNav = document.querySelector("#offcanvas-navbar");
+        const headerLogo = document.querySelector(".header-logo");
 
         toggler.addEventListener("click", () => {
             toggler.classList.add("opened");
             setTimeout(() => {
                 bsOffcanvas.show();
-                // toggler.classList.remove("opened");
+
+                utl_pageId() === "main-index" && (headerLogo.style.zIndex = "0");
             }, 350);
         });
 
         document.querySelector("#offcanvas-navbar").addEventListener("hidden.bs.offcanvas", () => {
             toggler.classList.remove("opened");
+            headerLogo.style.zIndex = "9999";
         });
 
         // Remove default click behavior from dropdown items

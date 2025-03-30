@@ -1,4 +1,19 @@
 #main-index {
+    #main-nav {
+        .nav-item {
+            &.nav-item-logo {
+                transform: translateY(-110%);
+                transition: transform 0.45s ease-in-out;
+            }
+        }
+
+        &.scrolled {
+            .nav-item-logo {
+                transform: translateY(0);
+            }
+        }
+    }
+
     #index-header {
         position: relative;
         height: 80vh;

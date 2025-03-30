@@ -16,6 +16,7 @@
 /* ======================== BASE ======================== */
 // Import utilities as needed
 import {
+    utl_pageId,
     utl_setFooterYear,
     // utl_ehElements,
     // utl_toggleCookiesAlert,
@@ -31,6 +32,9 @@ utl_setFooterYear();
 /* ===================== COMPONENTS ===================== */
 import navigationInit from "./components/_navigation.js";
 navigationInit();
+
+import animateHeadings from "./components/_animate-headings.js";
+utl_pageId() !== "faq" && animateHeadings();
 
 /* ======================== PAGES ======================= */
 // Individual page scripts are added in the header of specific page's index file

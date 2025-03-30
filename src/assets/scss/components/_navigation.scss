@@ -78,27 +78,8 @@
     }
 
     .nav-item {
-        &.nav-item-logo {
-            transform: translateY(-110%);
-            transition: transform 0.45s ease-in-out;
-        }
-
         .nav-link {
             text-transform: uppercase;
-        }
-    }
-
-    /* ======================= MOBILE ======================= */
-    @include media-breakpoint-down(lg) {
-    }
-
-    /* ======================= DESKTOP ====================== */
-    @include media-breakpoint-up(lg) {
-    }
-
-    &.scrolled {
-        .nav-item-logo {
-            transform: translateY(0);
         }
     }
 }

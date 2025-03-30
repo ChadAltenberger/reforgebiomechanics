@@ -76,11 +76,15 @@
 /* ===================== COMPONENTS ===================== */
 @import "components/navigation";
 @import "components/footer";
+@import "components/interior-header";
 @import "components/buttons";
 // @import "components/cookies-alert";
 // @import "components/eh-elements";
-// @import "components/sticky-sides";
+@import "components/sticky-sides";
 
 /* ======================== PAGES ======================= */
-@import "pages/index";
 @import "pages/error";
+@import "pages/index";
+@import "pages/faq";
+@import "pages/services-and-rates";
+@import "pages/who-we-are";

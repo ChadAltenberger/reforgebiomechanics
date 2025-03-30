@@ -1,0 +1,8 @@
+#faq {
+    .section-heading {
+        &::before,
+        &::after {
+            width: 50%;
+        }
+    }
+}

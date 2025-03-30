@@ -1,0 +1,36 @@
+#who-we-are {
+    h2 {
+        @include media-breakpoint-down(md) {
+            font-size: calc(1.25rem + 0.9vw);
+        }
+    }
+    img.about-img {
+        width: 90%;
+
+        @include media-breakpoint-up(xl) {
+            width: 28rem;
+        }
+
+        @include media-breakpoint-up(xxl) {
+            width: 32rem;
+        }
+
+        @include media-breakpoint-up(xxl2) {
+            width: 35rem;
+        }
+
+        @media (min-width: 1700px) {
+            width: 38rem;
+        }
+    }
+
+    figure {
+        .quote-wrapper {
+            .bi {
+                &.close-quote {
+                    transform: scale(-1);
+                }
+            }
+        }
+    }
+}

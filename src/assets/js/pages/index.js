@@ -1,7 +1,4 @@
 import triggerPopup from "../components/_trigger-popup.js";
-import animateHeadings from "../components/_animate-headings.js";
-
-animateHeadings();
 
 const navbar = document.querySelector("#main-nav");
 const headerLogo = document.querySelector(".header-logo");
