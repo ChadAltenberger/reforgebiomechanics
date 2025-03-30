@@ -7,17 +7,54 @@
             height: 100vh;
         }
 
+        img.header-logo {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6.25rem;
+            opacity: 0;
+            z-index: 9999;
+            transition: opacity 1s ease-in-out;
+
+            @include media-breakpoint-up(lg) {
+                width: 9rem;
+            }
+
+            &.animate {
+                opacity: 1;
+            }
+        }
+
         .img-wrapper {
             position: absolute;
-            top: 205px;
+            top: 155px;
             left: 0;
             transform: translateX(-100%);
-            width: 85%;
-            height: calc(100% - 205px);
+            width: 88.5%;
+            height: calc(100% - 155px);
             overflow: hidden;
             opacity: 0;
-            z-index: 0;
+            z-index: 1;
             transition: transform 1s ease-in-out, opacity 0.5s ease-in-out;
+
+            @include media-breakpoint-up(lg) {
+                top: 205px;
+                height: calc(100% - 205px);
+            }
+
+            // Image overlay
+            &::before {
+                position: absolute;
+                content: "";
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: $primary;
+                opacity: 0.25;
+                z-index: 1;
+            }
 
             img {
                 position: absolute;
@@ -35,6 +72,7 @@
                 left: 50%;
                 transform: translate(-50%, -60%);
                 opacity: 0;
+                z-index: 1;
                 transition: transform 1s ease-in-out, opacity 1s ease-in-out;
                 transition-delay: 0.8s;
 
@@ -43,7 +81,11 @@
                 }
 
                 .tagline {
-                    letter-spacing: 1.5rem;
+                    letter-spacing: 0.75rem;
+
+                    @include media-breakpoint-up(md) {
+                        letter-spacing: 1.5rem;
+                    }
                 }
             }
 
@@ -55,6 +97,89 @@
                     transform: translate(-50%, -50%);
                     opacity: 1;
                 }
+            }
+        }
+
+        .schedule-wrapper {
+            opacity: 0;
+            transform: translateY(-2rem);
+            right: 3.5%;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transition-delay: 1.5s;
+
+            &.animate {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            // Arrow icon animation
+            @keyframes moveDown {
+                0% {
+                    transform: translatey(0);
+                }
+
+                50% {
+                    transform: translatey(10px);
+                }
+
+                100% {
+                    transform: translatey(0);
+                }
+            }
+
+            .bi-chevron-down {
+                animation: moveDown 2s ease-in-out infinite;
+                display: inline-block; // To ensure it animates properly
+            }
+        }
+    }
+
+    #mission {
+        .gray-box {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            transition-delay: 1s;
+
+            &.animate {
+                opacity: 0.5;
+            }
+        }
+
+        img {
+            &.stretching {
+                width: 12rem;
+
+                @include media-breakpoint-up(md) {
+                    width: 15rem;
+                }
+
+                @include media-breakpoint-up(lg) {
+                    width: 22rem;
+                }
+            }
+        }
+
+        .vert-line {
+            position: absolute;
+            top: 75%;
+            left: 5%;
+            width: 2px;
+            height: 40%;
+
+            @include media-breakpoint-up(lg) {
+                left: 20%;
+                height: 50%;
+            }
+
+            &::before {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 0;
+                width: 3rem;
+                height: 2px;
+                background-color: $gray;
+                z-index: 0;
             }
         }
     }

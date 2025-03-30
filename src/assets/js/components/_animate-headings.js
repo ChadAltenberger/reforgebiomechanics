@@ -20,9 +20,10 @@ export default function animateHeadings() {
                     setTimeout(() => {
                         heading.classList.add("animate");
                     }, 300);
-                } else {
-                    heading.classList.remove("animate");
                 }
+                // else {
+                //     heading.classList.remove("animate");
+                // }
             });
         });
     });

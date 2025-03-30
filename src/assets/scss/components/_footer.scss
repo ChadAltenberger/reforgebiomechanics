@@ -1,15 +1,66 @@
 footer {
-    // SAM flag
-    #sam-flag {
+    position: relative;
+
+    #footer-wrapper {
         position: relative;
-        top: -2px;
-        margin: 0 2px;
 
-        height: 30px;
-        width: 21px;
+        #footer-main {
+            img.footer-logo {
+                width: 6rem;
 
-        .cls-1 {
-            fill: $secondary;
+                @include media-breakpoint-up(lg) {
+                    width: 10rem;
+                }
+            }
+
+            a {
+                @include media-breakpoint-down(md) {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: $secondary;
+            z-index: 0;
+        }
+
+        &::before {
+            left: 0;
+        }
+
+        &::after {
+            right: 0;
+        }
+
+        .top-line,
+        .btm-line {
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: $secondary;
+        }
+
+        .top-line {
+            top: 0;
+            left: 0;
+        }
+
+        .btm-line {
+            bottom: 0;
+            right: 0;
+        }
+    }
+
+    #copyright {
+        @include media-breakpoint-down(sm) {
+            font-size: 0.7rem;
         }
     }
 }

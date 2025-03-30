@@ -73,19 +73,14 @@
         }
     }
 
-    .navbar-brand {
-        .nav-logo {
-            width: 9rem;
-        }
+    .nav-logo {
+        width: 2.5rem;
     }
 
     .nav-item {
         &.nav-item-logo {
-            transition: transform 0.3s ease-in-out;
-
-            .nav-logo {
-                transition: width 0.3s ease-in-out;
-            }
+            transform: translateY(-110%);
+            transition: transform 0.45s ease-in-out;
         }
 
         .nav-link {
@@ -103,11 +98,7 @@
 
     &.scrolled {
         .nav-item-logo {
-            margin-left: 0 !important;
-
-            .nav-logo {
-                width: 2.5rem;
-            }
+            transform: translateY(0);
         }
     }
 }

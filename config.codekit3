@@ -174,6 +174,32 @@
       "q" : 80,
       "rq" : 75
     },
+    "\/src\/assets\/img\/mission-2.jpg" : {
+      "ft" : 16384,
+      "iS" : 224726,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/mission-2.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/img\/mission-image.jpg" : {
+      "ft" : 16384,
+      "iS" : 282722,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/img\/mission-image.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
     "\/src\/assets\/img\/reforge-logo-white.png" : {
       "ft" : 32768,
       "iS" : 224469,
@@ -15548,6 +15574,21 @@
       "oAP" : "\/dist\/assets\/scss\/base\/.sass-cache\/3b3fcf5cd718f685ddfc49658f1e15395e49b470\/buttons.scssc-e",
       "oF" : 0
     },
+    "\/src\/assets\/scss\/components\/_buttons.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 3,
+      "oA" : 1,
+      "oAP" : "\/dist\/assets\/scss\/css\/_buttons.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 2,
+      "sct" : 0
+    },
     "\/src\/assets\/scss\/components\/_cookies-alert.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -15758,7 +15799,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/reforge-icon.png",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 759099100.04357302
+    "lastBuiltDate" : 765032796.25268805
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
