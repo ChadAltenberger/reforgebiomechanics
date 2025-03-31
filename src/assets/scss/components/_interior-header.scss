@@ -10,5 +10,11 @@
             background-color: rgba($primary, 0.25);
             z-index: 0;
         }
+
+        h1 {
+            @include media-breakpoint-down(xxl) {
+                font-size: calc(1.4rem + 6.9vw);
+            }
+        }
     }
 }

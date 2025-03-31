@@ -96,7 +96,11 @@
                 }
 
                 .tagline {
-                    letter-spacing: 0.75rem;
+                    letter-spacing: 0.5rem;
+
+                    @include media-breakpoint-up(sm) {
+                        letter-spacing: 0.75rem;
+                    }
 
                     @include media-breakpoint-up(md) {
                         letter-spacing: 1.5rem;
@@ -181,20 +185,24 @@
             width: 2px;
             height: 40%;
 
-            @include media-breakpoint-up(lg) {
-                left: 20%;
-                height: 50%;
-            }
-
             &::before {
                 position: absolute;
                 content: "";
                 bottom: 0;
                 left: 0;
-                width: 3rem;
+                width: 2rem;
                 height: 2px;
                 background-color: $gray;
                 z-index: 0;
+            }
+
+            @include media-breakpoint-up(lg) {
+                left: 20%;
+                height: 50%;
+
+                &::before {
+                    width: 3rem;
+                }
             }
         }
     }
