@@ -59,4 +59,3 @@
         </svg>
     </div>
 `;document.querySelector("body").insertAdjacentHTML("beforeend",f),setTimeout((()=>{document.querySelector(".test-slug").style.opacity="1"}),500),document.querySelector("body").style.marginBottom="28px"}();
-//# sourceMappingURL=test-slug.js.map
