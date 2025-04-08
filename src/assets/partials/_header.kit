@@ -20,12 +20,3 @@
   <link href="<!-- $path? -->assets/css/main.css" rel="stylesheet">
   <script type="module" src="<!-- $path? -->assets/js/main.js"></script>
   <!-- $pageScript? -->
-  <!-- Conditionally insert test slug -->
-  <script type="module">
-    if (["summitathletics-dev.com", "www.summitathletics-dev.com"].includes(window.location.hostname)) {
-      document.head.appendChild(Object.assign(document.createElement("script"), {
-        type: "module",
-        src: "<!-- $path? -->assets/js/test-slug.js"
-      }));
-    }
-  </script>
