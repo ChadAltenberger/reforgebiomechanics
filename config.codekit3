@@ -15969,6 +15969,14 @@
       "pg" : 2,
       "sct" : 0
     },
+    "\/src\/CNAME" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 2,
+      "oAP" : "\/dist\/CNAME",
+      "oF" : 0
+    },
     "\/src\/error.kit" : {
       "cB" : 1,
       "ft" : 2048,
