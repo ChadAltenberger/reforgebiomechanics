@@ -16001,14 +16001,6 @@
       "oAP" : "\/dist\/index.html",
       "oF" : 0
     },
-    "\/src\/privacy-policy\/index.kit" : {
-      "cB" : 1,
-      "ft" : 2048,
-      "hM" : 1,
-      "oA" : 0,
-      "oAP" : "\/dist\/privacy-policy\/index.html",
-      "oF" : 0
-    },
     "\/src\/services-and-rates\/index.kit" : {
       "cB" : 1,
       "ft" : 2048,
@@ -16046,7 +16038,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/reforge-icon.png",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 765770231.93616998
+    "lastBuiltDate" : 771026566.52683699
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
