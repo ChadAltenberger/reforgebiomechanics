@@ -21,7 +21,7 @@ import {
     // utl_ehElements,
     // utl_toggleCookiesAlert,
     // utl_anchorScrollOffset,
-} from "./base/_utilities.js";
+} from "./base/_utils.js";
 
 // Call utility functions after imported
 utl_setFooterYear();

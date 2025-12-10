@@ -1,9 +1,10 @@
-<!-- $keywords = physical therapy, biomechanics, rehabilitation, nutrition consulting, injury recovery, fitness optimization, strength training, endurance sports, bodybuilding, personalized treatment -->
+<!-- $keywords = reforge biomechanics, physical therapy, biomechanics, rehabilitation, nutrition consulting, injury recovery, fitness optimization, strength training, endurance sports, bodybuilding, personalized treatment -->
 <!-- $pageTitle = nil -->
 <!-- $path = nil -->
 <!-- $pageId = main-index -->
 <!-- $pageScript = <script type='module' src='assets/js/index.js'></script> -->
 <!-- @import assets/partials/header -->
+<link rel="preload" as="image" href="assets/media/index/header-image.webp">
 <!-- $home = active -->
 <!-- ==================== SCSS LINK ==================== -->
 <!-- [[src/assets/scss/pages/_index.scss]] -->
@@ -11,12 +12,12 @@
 
 <body id="<!-- $pageId? -->">
     <!-- @import assets/partials/navigation -->
-    <main>
+    <main id="main-content">
         <section id="index-header" class="bg-primary">
-            <img class="header-logo" src="assets/img/reforge-logo-white.webp" alt="">
+            <img class="header-logo" src="assets/media/reforge-logo-white.webp" alt="Reforge Biomechanics logo">
             <div class="container-fluid h-100">
                 <div class="img-wrapper">
-                    <img class="w-100" src="assets/img/header-image.webp" alt="">
+                    <img class="w-100" src="assets/media/index/header-image.webp" alt="Man in hoodie with weights hanging around his neck">
                     <div class="content text-center w-100">
                         <div class="intro-heading text-center">
                             <h1 class="display-1 ls-5 ls-md-15 text-uppercase text-secondary">Reforge</h1>
@@ -43,9 +44,9 @@
                         <p>Reforge biomechanics is a physical optimization and rehabilitative treatment group centered around Physical Therapy. We source from decade plus experience in treating a litany of injury and disease processes as well as both training and rehabbing high-level athletes in the realms of strength and endurance sports as well as bodybuilding.</p>
                     </div>
                     <div class="col-lg-6 position-relative">
-                        <img class="img-fluid position-relative z-1" src="assets/img/mission-image.webp" alt="man exercising">
+                        <img class="img-fluid position-relative z-1" src="assets/media/index/mission-image.webp" loading="lazy" alt="man exercising">
                         <!-- STRETCHING -->
-                        <img class="stretching shadow position-absolute top-35 top-md-45 top-lg-20 end-0 me-lg-n5 z-1" src="assets/img/mission-2.webp" alt="woman stretching">
+                        <img class="stretching shadow position-absolute top-35 top-md-45 top-lg-20 end-0 me-lg-n5 z-1" src="assets/media/index/mission-2.webp" loading="lazy" alt="woman stretching">
                     </div>
                 </div>
             </div>
@@ -59,9 +60,9 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-xxl2-7 text-center">
                         <h2 class="section-heading display-2 text-uppercase">Treatment</h2>
-                        <p class="lh-lg mt-5">Our treatment approach combines comprehensive assessments of strength, movement, metabolic patterns, and behavioral health with tailored manual therapy, exercise, and lifestyle adjustments. This personalized treatment plan works to synchronize physical healing and progress, specifically aligned with each client's unique needs and goals. <a href="services-and-rates/index.html">Click here</a> to see a full list of our services and rates.</p>
+                        <p class="lh-lg mt-5">Our treatment approach combines comprehensive assessments of strength, movement, metabolic patterns, and behavioral health with tailored manual therapy, exercise, and lifestyle adjustments. This personalized treatment plan works to synchronize physical healing and progress, specifically aligned with each client's unique needs and goals. <a class="link-underline link-underline-opacity-0-hover" href="services-and-rates/index.html">Click here <span class="visually-hidden">for list of services and rates</span></a> to see a full list of our services and rates.</p>
                         <a class="btn mt-5" href="https://reforgebiomechanics.janeapp.com/locations/reforge-biomechanics/book" target="_blank">
-                            <div>Schedule Now</div>
+                            <div>Schedule Now <span class="visually-hidden">schedule an appointment</span></div>
                         </a>
                     </div>
                 </div>

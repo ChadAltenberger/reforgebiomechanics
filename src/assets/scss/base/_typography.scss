@@ -1,6 +1,20 @@
 h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+h1,
 h2 {
     font-weight: 600 !important;
+}
+
+p,
+li {
+    text-wrap: pretty;
 }
 
 .font-primary-bold,
@@ -44,37 +58,6 @@ h2 {
         &::before,
         &::after {
             width: 50%;
-        }
-    }
-}
-
-// Letter spacing variables
-$spaces: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-$breakpoints: (sm, md, lg, xl, xxl, xxl2, xxl3, xxl4);
-
-// Loop for letter-spacing classes (0px to 15px)
-@each $space in $spaces {
-    .ls-#{$space} {
-        letter-spacing: #{$space}px;
-    }
-}
-
-// Media queries to handle breakpoints
-@each $breakpoint in $breakpoints {
-    @include media-breakpoint-up($breakpoint) {
-        @each $space in $spaces {
-            .ls-#{$breakpoint}-#{$space} {
-                letter-spacing: #{$space}px;
-            }
-        }
-    }
-
-    // Now to specifically adjust the cascade so that higher breakpoints override lower ones
-    @include media-breakpoint-up($breakpoint) {
-        @each $space in $spaces {
-            .ls-#{$breakpoint}-#{$space} {
-                letter-spacing: #{$space}px !important;
-            }
         }
     }
 }

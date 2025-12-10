@@ -1,5 +1,16 @@
+import Carousel from "bootstrap/js/dist/carousel"; // For utl_toggleCarouselPausePlayBtn
+
+/* ====== FORMAT TEMPLATE LITERALS AS REGULAR HTML ====== */
+const html = String.raw;
+
+/* ================= GET PAGE'S BODY ID ================= */
+const utl_pageId = () => document.querySelector("body").getAttribute("id");
+
+/* ========= GET AND SET CURRENT YEAR IN FOOTER ========= */
+const utl_setFooterYear = () => (document.querySelector("#current-year").innerHTML = new Date().getFullYear());
+
 /* ================ EQUAL HEIGHT ELEMENTS =============== */
-const utl_ehElements = () => {
+const utl_ehElements = ({ async = false } = {}) => {
     let containerClasses = []; // Set empty array to store each container-classList
 
     function getAndSetHeights() {
@@ -51,12 +62,46 @@ const utl_ehElements = () => {
         });
     }
 
-    window.addEventListener("load", getAndSetHeights);
+    // Run immediately if this was triggered by async data
+    if (async) {
+        getAndSetHeights();
+    } else {
+        // Otherwise, wait for the full page load
+        if (document.readyState === "complete") {
+            getAndSetHeights();
+        } else {
+            window.addEventListener("load", getAndSetHeights);
+        }
+    }
+
+    // Add resize event listener with throttling
+    let resizeRaf;
+
     window.addEventListener("resize", () => {
-        // Give browser a chance to reset heights before resizing
-        setTimeout(() => {
+        if (resizeRaf) return;
+        resizeRaf = requestAnimationFrame(() => {
             resizeHeights();
-        }, 100);
+            resizeRaf = null;
+        });
+    });
+};
+
+/* ======= RETURN FOCUS TO MODAL TRIGGER ON CLOSE ======= */
+// Be sure to include function call on specific pages AFTER dynamically loaded modals (ex. staff modals)
+const utl_handleModalClose = () => {
+    const modals = document.querySelectorAll(".modal");
+    if (modals.length === 0) return;
+
+    modals.forEach((modal) => {
+        if (modal.dataset.utlHandled) return; // If modal has already had the eventListener added (has data-utl-handled attribute), ignore it.
+
+        modal.addEventListener("hide.bs.modal", () => {
+            if (document.activeElement instanceof HTMLElement) {
+                document.activeElement.blur();
+            }
+        });
+
+        modal.dataset.utlHandled = "true"; // Add the data-utl-handled attribute so it doesn't get eventListener added more than once
     });
 };
 
@@ -75,12 +120,12 @@ const utl_parseData = (data, Papa) => {
 
 /* ===== OFFSET SCROLL POSITIONS OF ANCHOR ELEMENTS ===== */
 const utl_anchorScrollOffset = () => {
-    const offsetElements = document.querySelectorAll("[data-sam-offset]");
+    const offsetElements = document.querySelectorAll("[data-sa-offset]");
 
     function getOffsetValues() {
         offsetElements.forEach((element) => {
             const offsetValues = element
-                .getAttribute("data-sam-offset")
+                .getAttribute("data-sa-offset")
                 .split(",")
                 .map((value) => value.trim());
             let scrollMarginTop;
@@ -106,13 +151,15 @@ const utl_anchorScrollOffset = () => {
 
     getOffsetValues();
 
-    let oldWidth = window.innerWidth;
+    // Add resize event listener with throttling
+    let resizeRaf;
 
     window.addEventListener("resize", () => {
-        if (window.innerWidth !== oldWidth) {
+        if (resizeRaf) return;
+        resizeRaf = requestAnimationFrame(() => {
             getOffsetValues();
-            oldWidth = window.innerWidth;
-        }
+            resizeRaf = null;
+        });
     });
 };
 
@@ -142,14 +189,56 @@ const utl_toggleCookiesAlert = () => {
     });
 };
 
-/* ========= GET AND SET CURRENT YEAR IN FOOTER ========= */
-const utl_setFooterYear = () => (document.querySelector("#current-year").innerHTML = new Date().getFullYear());
+/* ====== ADD PAUSE FEATURE TO AUTO-SLIDE CAROUSELS ===== */
+const utl_toggleCarouselPausePlayBtn = () => {
+    const carousels = document.querySelectorAll(".carousel");
 
-/* ================= GET PAGE'S BODY ID ================= */
-const utl_pageId = () => document.querySelector("body").getAttribute("id");
+    carousels.forEach((carousel) => {
+        if (carousel.getAttribute("data-sa-slide") !== "auto") return; // data-sa-slide replaces data-bs-ride
 
-/* ====== FORMAT TEMPLATE LITERALS AS REGULAR HTML ====== */
-const html = String.raw;
+        // Insert button
+        const btnHTML = html`
+            <button class="carousel-pause-play-btn p-0" type="button" aria-pressed="false" aria-label="Pause carousel autoplay">
+                <i class="bi bi-pause fs-4"></i>
+            </button>
+        `;
+
+        carousel.querySelector(".carousel-inner").insertAdjacentHTML("afterbegin", btnHTML);
+        const btn = carousel.querySelector(".carousel-pause-play-btn");
+        const icon = btn.querySelector(".bi");
+
+        // Get or create carousel instance
+        const carouselInstance = Carousel.getOrCreateInstance(carousel, {
+            ride: "carousel",
+            pause: "hover",
+        });
+        const originalInterval = carouselInstance._config.interval;
+
+        // Initial start of cycling
+        carouselInstance.cycle();
+
+        function toggleCarouselCycle(cycleState, intervalValue, pauseValue, rideValue, btnState, activeIcon, inactiveIcon) {
+            cycleState;
+            carouselInstance._config.interval = intervalValue;
+            carouselInstance._config.pause = pauseValue;
+            carouselInstance._config.ride = rideValue;
+            btn.setAttribute("aria-pressed", btnState);
+            icon.classList.replace(inactiveIcon, activeIcon);
+        }
+
+        btn.addEventListener("click", () => {
+            const isPaused = btn.getAttribute("aria-pressed") === "true";
+
+            if (!isPaused) {
+                // PAUSE
+                toggleCarouselCycle(carouselInstance.pause(), false, false, false, "true", "bi-play", "bi-pause");
+            } else {
+                // PLAY
+                toggleCarouselCycle(carouselInstance.cycle(), originalInterval, "hover", "carousel", "false", "bi-pause", "bi-play");
+            }
+        });
+    });
+};
 
 /* ================ EXPORT ALL UTILITIES ================ */
-export { utl_ehElements, utl_parseData, utl_anchorScrollOffset, utl_toggleCookiesAlert, utl_setFooterYear, utl_pageId, html };
+export { html, utl_pageId, utl_setFooterYear, utl_ehElements, utl_handleModalClose, utl_parseData, utl_anchorScrollOffset, utl_toggleCookiesAlert, utl_toggleCarouselPausePlayBtn };

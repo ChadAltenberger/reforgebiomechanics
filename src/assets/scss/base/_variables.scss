@@ -1,6 +1,8 @@
-// Fonts
+// FONTS
+// *Update _utilities-map.scss accordingly
 $font-primary: "Open Sans", sans-serif;
-// $font-secondary: "SECONDARY-FONT-NAME", Helvetica, sans-serif;
+
+$font-family-base: $font-primary;
 
 // Bootstrap Icons - fonts
 $bootstrap-icons-font-src: url("../fonts/bootstrap-icons.woff2") format("woff2"), url("../fonts/bootstrap-icons.woff") format("woff") !default;
@@ -10,22 +12,26 @@ $secondary: #ffffff;
 $gray: #c2c2c2;
 $white: #ffffff;
 $black: #000000;
-$transparent: #ffffff00;
-// $info: #007a86;
-// $dark: #a7a8aa;
-// $gray: #a7a8aa;
-// $gray-dark: #63666a;
-// $gray-light: lighten(#a7a8aa, 25%);
+$placeholder: magenta;
+
+// Focus outline color
+$focus-color: #0043ff; // Blue
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "gray": $gray,
+    "white": $white,
+    "black": $black,
+    "placeholder": $placeholder,
+    "transparent": transparent,
+) !default;
+// scss-docs-end theme-colors-map
 
 $body-bg: #ffffff;
 
-// $info: 		;
-// $body-color: ;
-
-$font-family-base: $font-primary;
-// $headings-font-family: $font-secondary;
 $headings-color: $primary;
-
 $display-font-weight: inherit !default;
 
 // scss-docs-start display-headings
@@ -172,3 +178,6 @@ $spacers: (
     n6: $spacer * -6,
 ) !default;
 // scss-docs-end spacer-variables-maps
+
+// Default is 6, set to 12 to generate row-cols-7 through row-cols-12
+$grid-row-columns: 12 !default;

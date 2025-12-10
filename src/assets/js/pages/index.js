@@ -1,4 +1,4 @@
-import triggerPopup from "../components/_trigger-popup.js";
+import triggerPopup from "../components/_trigger-popup";
 
 const navbar = document.querySelector("#main-nav");
 const headerLogo = document.querySelector(".header-logo");
@@ -20,5 +20,6 @@ setTimeout(() => {
     grayBox.classList.add("animate");
     scheduleWrapper.classList.add("animate");
 }, 300);
+
 /* ============= TRIGGER POPUP ON PAGE LOAD ============= */
 // triggerPopup("#popup");

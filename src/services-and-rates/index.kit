@@ -3,14 +3,15 @@
 <!-- $path = ../ -->
 <!-- $pageId = services-and-rates -->
 <!-- @import ../assets/partials/header -->
-<!-- $headerImg = assets/img/services-and-rates/services-and-rates-header -->
+<link rel="preload" as="image" href="../assets/media/services-and-rates/services-and-rates-header.webp">
+<!-- $headerImg = assets/media/services-and-rates/services-and-rates-header -->
 <!-- $headerTitle = Services & Rates -->
 <!-- $services = active -->
 </head>
 
 <body id="<!-- $pageId? -->">
     <!-- @import ../assets/partials/navigation -->
-    <main>
+    <main id="main-content">
         <!-- @import ../assets/partials/interior-header -->
         <section class="position-relative mt-5">
             <div class="bg-gray w-45 w-lg-30 h-15 h-lg-25 h-lg-60 position-absolute top-0 end-0 mt-n6 z-n1"></div>
@@ -41,13 +42,13 @@
                     <div class="col-12 mt-4 mt-lg-0">
                         <div class="p-3 p-lg-5 text-center text-md-start">
                             <a class="btn" href="https://reforgebiomechanics.janeapp.com/locations/reforge-biomechanics/book" target="_blank">
-                                <div>Schedule Now</div>
+                                <div>Schedule Now <span class="visually-hidden">schedule an appointment</span></div>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <img class="action-img position-absolute bottom-0 end-0 z-n1 d-none d-md-block" src="../assets/img/services-and-rates/action-image.webp" alt="">
+            <img class="action-img position-absolute bottom-0 end-0 z-n1 d-none d-md-block" src="../assets/media/services-and-rates/action-image.webp" loading="lazy" alt="A man applying athletic tape to a man's leg">
         </section>
     </main>
     <!-- @import ../assets/partials/privacy-policy -->

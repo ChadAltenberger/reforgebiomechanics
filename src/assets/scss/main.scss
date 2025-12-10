@@ -74,13 +74,12 @@
 @import "base/typography";
 
 /* ===================== COMPONENTS ===================== */
+// @import "components/cookies-alert";
+// @import "components/eh-elements";
 @import "components/navigation";
 @import "components/footer";
 @import "components/interior-header";
 @import "components/buttons";
-// @import "components/cookies-alert";
-// @import "components/eh-elements";
-@import "components/sticky-sides";
 
 /* ======================== PAGES ======================= */
 @import "pages/error";

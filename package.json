@@ -1,14 +1,16 @@
 {
-	"name": "codekit-project",
+	"name": "reforge-biomechanics",
 	"version": "1.0.0",
-	"description": "CodeKit created this starter package.json file. You should customize it appropriately.",
+	"description": "Static site for Reforge Biomechanics.",
+	"author": "Chad Altenberger",
+	"license": "UNLICENSED",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ChadAltenberger/reforgebiomechanics.git"
+	},
 	"scripts": {
 		"deploy": "gh-pages -d dist"
 	},
-	"author": "",
-	"license": "UNLICENSED",
-	"homepage": "https://chadaltenberger.github.io/reforgebiomechanics",
-	"repository": {},
 	"dependencies": {
 		"@fancyapps/fancybox": "^3.5.7",
 		"@glidejs/glide": "^3.6.0",

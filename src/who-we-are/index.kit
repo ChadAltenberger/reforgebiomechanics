@@ -3,14 +3,15 @@
 <!-- $path = ../ -->
 <!-- $pageId = who-we-are -->
 <!-- @import ../assets/partials/header -->
-<!-- $headerImg = assets/img/who-we-are/who-we-are-header -->
+<link rel="preload" as="image" href="../assets/media/who-we-are/who-we-are-header.webp">
+<!-- $headerImg = assets/media/who-we-are/who-we-are-header -->
 <!-- $headerTitle = Who We Are -->
 <!-- $services = active -->
 </head>
 
 <body id="<!-- $pageId? -->">
     <!-- @import ../assets/partials/navigation -->
-    <main>
+    <main id="main-content">
         <!-- @import ../assets/partials/interior-header -->
         <section class="position-relative mt-lg-5">
             <div class="container">
@@ -27,10 +28,10 @@
         <section class="bg-gray position-relative pt-0">
             <picture>
                 <!-- md -->
-                <source media='(min-width: 1200px)' srcset='../assets/img/who-we-are/about-lg.webp' type='image/webp'>
+                <source media='(min-width: 1200px)' srcset='../assets/media/who-we-are/about-lg.webp' type='image/webp'>
                 <!-- sm -->
-                <source media='(max-width: 1199.98px)' srcset='../assets/img/who-we-are/about-sm.webp' type='image/webp'>
-                <img class="about-img position-xl-absolute top-0 start-0 mt-n6" src="../assets/img/who-we-are/about-lg.webp" alt="">
+                <source media='(max-width: 1199.98px)' srcset='../assets/media/who-we-are/about-sm.webp' type='image/webp'>
+                <img class="about-img position-xl-absolute top-0 start-0 mt-n6" src="../assets/media/who-we-are/about-lg.webp" loading="lazy" alt="">
             </picture>
             <div class="container mt-xl-n5">
                 <div class="row">

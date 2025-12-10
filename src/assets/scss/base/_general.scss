@@ -14,7 +14,7 @@ section {
         right: 1.5rem;
         width: 45px;
         height: 45px;
-        background: url("../img/elements/corner-accent.svg") no-repeat center center / cover;
+        background: url("../media/elements/corner-accent.svg") no-repeat center center / cover;
         opacity: 0.65;
         z-index: 1;
     }
@@ -30,22 +30,29 @@ section {
     }
 }
 
-.container-flush {
-    @include container-flush; // Apply default padding
+textarea {
+    resize: none;
+}
 
-    @each $breakpoint in (sm, md, lg, xl, xxl, xxl2, xxl3, xxl4) {
-        &-#{$breakpoint} {
-            &-up {
-                @include media-breakpoint-up(#{$breakpoint}) {
-                    @include container-flush($pe: calc(var(--bs-gutter-x) * 0.5), $ps: calc(var(--bs-gutter-x) * 0.5));
-                }
-            }
+.skip-link {
+    z-index: 9999;
+}
 
-            &-down {
-                @include media-breakpoint-down(#{$breakpoint}) {
-                    @include container-flush;
-                }
-            }
+a,
+button,
+input,
+textarea {
+    &:focus {
+        outline: none !important;
+    }
+
+    &:focus-visible {
+        @include focus-styles;
+    }
+
+    &.btn {
+        &:focus-visible {
+            outline-offset: -3px !important;
         }
     }
 }

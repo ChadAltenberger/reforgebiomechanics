@@ -1,5 +1,5 @@
 import { Offcanvas } from "bootstrap";
-import { utl_pageId } from "../base/_utilities.js";
+import { utl_pageId } from "../base/_utils.js";
 
 export default function navigationInit() {
     document.addEventListener("DOMContentLoaded", function () {
