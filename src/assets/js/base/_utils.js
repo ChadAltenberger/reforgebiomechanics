@@ -1,5 +1,3 @@
-import Carousel from "bootstrap/js/dist/carousel"; // For utl_toggleCarouselPausePlayBtn
-
 /* ====== FORMAT TEMPLATE LITERALS AS REGULAR HTML ====== */
 const html = String.raw;
 
@@ -25,7 +23,7 @@ const utl_ehElements = ({ async = false } = {}) => {
             containerClasses.push(containerClass);
 
             let equalHeightEls = document.querySelectorAll(
-                `${containerClass} .eh` // Target the equal-height elements within their eh-containers
+                `${containerClass} .eh`, // Target the equal-height elements within their eh-containers
             );
 
             let equalHeightElsArr = Array.from(equalHeightEls); // Convert NodeList to an Array
@@ -84,6 +82,70 @@ const utl_ehElements = ({ async = false } = {}) => {
             resizeRaf = null;
         });
     });
+};
+
+/* ========== MAKE CAROUSEL ITEMS EQUAL HEIGHTS ========= */
+const utl_ehCarouselItems = (carousel) => {
+    function normalizeSlideHeights() {
+        const items = carousel.querySelectorAll(".carousel-item");
+
+        let maxHeight = 0;
+
+        // Reset the height and overflow properties
+        items.forEach((item) => {
+            Object.assign(item.style, {
+                minHeight: "0",
+                height: "auto",
+                // Temporarily set css to allow for accurate height calculations
+                overflow: "visible",
+                display: "block",
+                visibility: "hidden",
+            });
+
+            const itemHeight = item.offsetHeight; // Get heights of each item
+            maxHeight = Math.max(maxHeight, itemHeight); // Compare maxHeight to current itemHeight & return larger of two
+
+            // Reset display & visibility properties of each item to original values
+            Object.assign(item.style, {
+                display: "",
+                visibility: "",
+            });
+        });
+
+        // Set heights of each item to the maxHeight & reset overflow
+        items.forEach((item) => {
+            Object.assign(item.style, {
+                height: `${maxHeight}px`,
+                overflow: "",
+            });
+        });
+    }
+
+    // Add resize event listener with debouncing
+    let resizeTimeout;
+
+    function passHandler(event) {
+        let oldWidth = window.innerWidth;
+
+        window.addEventListener(event, () => {
+            if (event === "load") {
+                normalizeSlideHeights();
+            } else if (event === "resize" || event === "orientationchange") {
+                if (window.innerWidth !== oldWidth) {
+                    clearTimeout(resizeTimeout);
+                    // Give browser a chance to reset heights before resizing
+                    resizeTimeout = setTimeout(normalizeSlideHeights, 100); // Reduce frequent execution
+                    // normalizeSlideHeights();
+
+                    oldWidth = window.innerWidth;
+                }
+            }
+        });
+    }
+
+    passHandler("load");
+    passHandler("resize");
+    passHandler("orientationchange");
 };
 
 /* ======= RETURN FOCUS TO MODAL TRIGGER ON CLOSE ======= */
@@ -189,56 +251,5 @@ const utl_toggleCookiesAlert = () => {
     });
 };
 
-/* ====== ADD PAUSE FEATURE TO AUTO-SLIDE CAROUSELS ===== */
-const utl_toggleCarouselPausePlayBtn = () => {
-    const carousels = document.querySelectorAll(".carousel");
-
-    carousels.forEach((carousel) => {
-        if (carousel.getAttribute("data-sa-slide") !== "auto") return; // data-sa-slide replaces data-bs-ride
-
-        // Insert button
-        const btnHTML = html`
-            <button class="carousel-pause-play-btn p-0" type="button" aria-pressed="false" aria-label="Pause carousel autoplay">
-                <i class="bi bi-pause fs-4"></i>
-            </button>
-        `;
-
-        carousel.querySelector(".carousel-inner").insertAdjacentHTML("afterbegin", btnHTML);
-        const btn = carousel.querySelector(".carousel-pause-play-btn");
-        const icon = btn.querySelector(".bi");
-
-        // Get or create carousel instance
-        const carouselInstance = Carousel.getOrCreateInstance(carousel, {
-            ride: "carousel",
-            pause: "hover",
-        });
-        const originalInterval = carouselInstance._config.interval;
-
-        // Initial start of cycling
-        carouselInstance.cycle();
-
-        function toggleCarouselCycle(cycleState, intervalValue, pauseValue, rideValue, btnState, activeIcon, inactiveIcon) {
-            cycleState;
-            carouselInstance._config.interval = intervalValue;
-            carouselInstance._config.pause = pauseValue;
-            carouselInstance._config.ride = rideValue;
-            btn.setAttribute("aria-pressed", btnState);
-            icon.classList.replace(inactiveIcon, activeIcon);
-        }
-
-        btn.addEventListener("click", () => {
-            const isPaused = btn.getAttribute("aria-pressed") === "true";
-
-            if (!isPaused) {
-                // PAUSE
-                toggleCarouselCycle(carouselInstance.pause(), false, false, false, "true", "bi-play", "bi-pause");
-            } else {
-                // PLAY
-                toggleCarouselCycle(carouselInstance.cycle(), originalInterval, "hover", "carousel", "false", "bi-pause", "bi-play");
-            }
-        });
-    });
-};
-
 /* ================ EXPORT ALL UTILITIES ================ */
-export { html, utl_pageId, utl_setFooterYear, utl_ehElements, utl_handleModalClose, utl_parseData, utl_anchorScrollOffset, utl_toggleCookiesAlert, utl_toggleCarouselPausePlayBtn };
+export { html, utl_pageId, utl_setFooterYear, utl_ehElements, utl_ehCarouselItems, utl_handleModalClose, utl_parseData, utl_anchorScrollOffset, utl_toggleCookiesAlert };

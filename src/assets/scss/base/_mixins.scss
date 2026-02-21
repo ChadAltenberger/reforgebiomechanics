@@ -59,12 +59,12 @@
     position: relative;
     isolation: isolate;
 
-    &::before,
-    &::after {
+    &::before {
         position: absolute;
         content: "";
         inset: 0;
         z-index: $z-index;
+        pointer-events: none;
     }
 
     &::before {
@@ -73,11 +73,12 @@
 
     @if $second-direction != null {
         &::after {
+            position: absolute;
+            content: "";
+            inset: 0;
             background: linear-gradient(to #{$second-direction}, rgba($color, 1) 0%, rgba($color, $second-stop-2-opacity) $second-stop-2-percentage, rgba($color, 0) $second-stop-3-percentage);
-        }
-    } @else {
-        &::after {
-            display: none;
+            z-index: $z-index;
+            pointer-events: none;
         }
     }
 }
@@ -86,5 +87,10 @@
     outline: 2px solid $focus-color !important;
     outline-offset: 1.5px !important;
     opacity: 1 !important;
-    box-shadow: 0 0 $white, 0 0 $white, 0 0 0 1px $white, 0 0 0 1.5px $white, 0 0 $white !important;
+    box-shadow:
+        0 0 $white,
+        0 0 $white,
+        0 0 0 1px $white,
+        0 0 0 1.5px $white,
+        0 0 $white !important;
 }

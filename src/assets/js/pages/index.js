@@ -1,10 +1,15 @@
 import triggerPopup from "../components/_trigger-popup";
+import { utl_ehCarouselItems } from "../base/_utils";
 
 const navbar = document.querySelector("#main-nav");
 const headerLogo = document.querySelector(".header-logo");
 const headerWrapper = document.querySelector("#index-header .img-wrapper");
 const scheduleWrapper = document.querySelector(".schedule-wrapper");
 const grayBox = document.querySelector(".gray-box");
+
+const testimonialCarousel = document.querySelector("#testimonial-carousel");
+
+utl_ehCarouselItems(testimonialCarousel);
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 144) {

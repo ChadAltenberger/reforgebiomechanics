@@ -80,17 +80,6 @@
       "oAP" : "\/dist\/assets\/fonts\/bootstrap-icons.woff2",
       "oF" : 0
     },
-    "\/src\/assets\/js\/base\/_jquery-global.js" : {
-      "bF" : 4,
-      "ft" : 64,
-      "ma" : 3,
-      "mi" : 1,
-      "oA" : 1,
-      "oAP" : "\/dist\/assets\/js\/_jquery-global.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
     "\/src\/assets\/js\/base\/_utils.js" : {
       "bF" : 4,
       "ft" : 64,
@@ -109,6 +98,17 @@
       "mi" : 1,
       "oA" : 1,
       "oAP" : "\/dist\/assets\/js\/_animate-headings.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/src\/assets\/js\/components\/_carousels.js" : {
+      "bF" : 4,
+      "ft" : 64,
+      "ma" : 3,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/dist\/assets\/js\/_carousels.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -15711,6 +15711,21 @@
       "pg" : 2,
       "sct" : 0
     },
+    "\/src\/assets\/scss\/components\/_carousels.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 3,
+      "oA" : 1,
+      "oAP" : "\/dist\/assets\/scss\/css\/_carousels.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 2,
+      "sct" : 0
+    },
     "\/src\/assets\/scss\/components\/_cookies-alert.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -15906,6 +15921,22 @@
       "pg" : 2,
       "sct" : 0
     },
+    "\/src\/blog\/index-dev.kit" : {
+      "cB" : 1,
+      "ft" : 2048,
+      "hM" : 1,
+      "oA" : 0,
+      "oAP" : "\/dist\/blog\/index-dev.html",
+      "oF" : 0
+    },
+    "\/src\/blog\/scapula-101\/index-dev.kit" : {
+      "cB" : 1,
+      "ft" : 2048,
+      "hM" : 1,
+      "oA" : 0,
+      "oAP" : "\/dist\/blog\/scapula-101\/index-dev.html",
+      "oF" : 0
+    },
     "\/src\/CNAME" : {
       "cB" : 0,
       "ft" : 8192,
@@ -15975,7 +16006,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/reforge-icon.png",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 787072474.73523998
+    "lastBuiltDate" : 793368524.79088402
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -16269,14 +16300,14 @@
     "bowerUseExactVersion" : 0,
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
-    "buildEnvironment" : 0,
+    "buildEnvironment" : 1,
     "buildFolderActive" : 1,
     "buildFolderName" : "dist",
     "cleanBuild" : 1,
     "cssoForceMediaMerge" : 0,
     "cssoRestructure" : 1,
     "environmentVariableEntries" : [
-      "NODE_ENV:::production"
+      "NODE_ENV:::development"
     ],
     "esLintConfigFileHandlingType" : 1,
     "esLintECMAVersion" : 7,

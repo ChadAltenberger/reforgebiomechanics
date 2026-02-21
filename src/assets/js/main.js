@@ -1,9 +1,4 @@
 /* ========================= NPM ======================== */
-// jQuery
-// import "./base/_jquery-global.js";
-
-// Popper.js (* tooltip, popover, dropdown)
-// import * as Popper from "@popperjs/core";
 
 // Use following imports only where needed (not globally)
 // Bootstrap modules (add as needed)
@@ -16,12 +11,11 @@
 /* ======================== BASE ======================== */
 // Import utilities as needed
 import {
-    utl_pageId,
     utl_setFooterYear,
     // utl_ehElements,
     // utl_toggleCookiesAlert,
     // utl_anchorScrollOffset,
-} from "./base/_utils.js";
+} from "./base/_utils";
 
 // Call utility functions after imported
 utl_setFooterYear();
@@ -34,7 +28,9 @@ import navigationInit from "./components/_navigation.js";
 navigationInit();
 
 import animateHeadings from "./components/_animate-headings.js";
-utl_pageId() !== "faq" && animateHeadings();
+document.querySelector(".section-heading") && animateHeadings();
 
+import carouselsInit from "./components/_carousels";
+document.querySelector(".carousel") && carouselsInit();
 /* ======================== PAGES ======================= */
 // Individual page scripts are added in the header of specific page's index file
