@@ -15921,20 +15921,28 @@
       "pg" : 2,
       "sct" : 0
     },
-    "\/src\/blog\/index-dev.kit" : {
+    "\/src\/blog\/index.kit" : {
       "cB" : 1,
       "ft" : 2048,
       "hM" : 1,
       "oA" : 0,
-      "oAP" : "\/dist\/blog\/index-dev.html",
+      "oAP" : "\/dist\/blog\/index.html",
       "oF" : 0
     },
-    "\/src\/blog\/scapula-101\/index-dev.kit" : {
+    "\/src\/blog\/scapula-101\/index.kit" : {
       "cB" : 1,
       "ft" : 2048,
       "hM" : 1,
       "oA" : 0,
-      "oAP" : "\/dist\/blog\/scapula-101\/index-dev.html",
+      "oAP" : "\/dist\/blog\/scapula-101\/index.html",
+      "oF" : 0
+    },
+    "\/src\/blog\/wrangling-calf-muscle\/index.kit" : {
+      "cB" : 1,
+      "ft" : 2048,
+      "hM" : 1,
+      "oA" : 0,
+      "oAP" : "\/dist\/blog\/wrangling-calf-muscle\/index.html",
       "oF" : 0
     },
     "\/src\/CNAME" : {
@@ -16006,7 +16014,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/reforge-icon.png",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 793368524.79088402
+    "lastBuiltDate" : 793468480.31062603
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

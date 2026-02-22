@@ -9,7 +9,8 @@
 		"url": "https://github.com/ChadAltenberger/reforgebiomechanics.git"
 	},
 	"scripts": {
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist",
+		"deploy:dev": "gh-pages -d dist -r https://github.com/ChadAltenberger/reforgebiomechanics-dev.git"
 	},
 	"dependencies": {
 		"@fancyapps/fancybox": "^3.5.7",
