@@ -23,6 +23,12 @@
       "oAP" : "\/dist\/.vscode",
       "oF" : 0
     },
+    "\/dist" : {
+      "ft" : 65536,
+      "oA" : 1,
+      "oAP" : "\/dist\/dist",
+      "oF" : 0
+    },
     "\/node_modules" : {
       "ft" : 65536,
       "oA" : 1,
@@ -150,6 +156,58 @@
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
+    },
+    "\/src\/assets\/media\/blog\/blog-header-lg.jpg" : {
+      "ft" : 16384,
+      "iS" : 256172,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/media\/blog\/blog-header-lg.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/media\/blog\/blog-header-md.jpg" : {
+      "ft" : 16384,
+      "iS" : 90666,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/media\/blog\/blog-header-md.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/media\/blog\/blog-header-sm.jpg" : {
+      "ft" : 16384,
+      "iS" : 31235,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/media\/blog\/blog-header-sm.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
+    },
+    "\/src\/assets\/media\/blog\/scapula-thumbnail.jpg" : {
+      "ft" : 16384,
+      "iS" : 36898,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/dist\/assets\/media\/blog\/scapula-thumbnail.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 80,
+      "rq" : 75
     },
     "\/src\/assets\/media\/elements\/corner-accent.svg" : {
       "ft" : 2097152,
@@ -15915,6 +15973,30 @@
       "pg" : 2,
       "sct" : 0
     },
+    "\/src\/blog\/index.kit" : {
+      "cB" : 1,
+      "ft" : 2048,
+      "hM" : 1,
+      "oA" : 0,
+      "oAP" : "\/dist\/blog\/index.html",
+      "oF" : 0
+    },
+    "\/src\/blog\/scapula-101\/index.kit" : {
+      "cB" : 1,
+      "ft" : 2048,
+      "hM" : 1,
+      "oA" : 0,
+      "oAP" : "\/dist\/blog\/scapula-101\/index.html",
+      "oF" : 0
+    },
+    "\/src\/blog\/wrangling-calf-muscle\/index.kit" : {
+      "cB" : 1,
+      "ft" : 2048,
+      "hM" : 1,
+      "oA" : 0,
+      "oAP" : "\/dist\/blog\/wrangling-calf-muscle\/index.html",
+      "oF" : 0
+    },
     "\/src\/CNAME" : {
       "cB" : 0,
       "ft" : 8192,
@@ -15984,7 +16066,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/reforge-icon.png",
     "iconImageWasSetByUser" : 1,
-    "lastBuiltDate" : 793664563.16406202
+    "lastBuiltDate" : 794168814.41306698
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -16278,14 +16360,14 @@
     "bowerUseExactVersion" : 0,
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
-    "buildEnvironment" : 0,
+    "buildEnvironment" : 1,
     "buildFolderActive" : 1,
     "buildFolderName" : "dist",
     "cleanBuild" : 1,
     "cssoForceMediaMerge" : 0,
     "cssoRestructure" : 1,
     "environmentVariableEntries" : [
-      "NODE_ENV:::production"
+      "NODE_ENV:::development"
     ],
     "esLintConfigFileHandlingType" : 1,
     "esLintECMAVersion" : 7,
