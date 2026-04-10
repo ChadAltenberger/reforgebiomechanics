@@ -251,5 +251,35 @@ const utl_toggleCookiesAlert = () => {
     });
 };
 
+/* ******************** RENDER HTML DYNAMICALLY FROM ARRAY OF OBJECTS ******************** */
+/**
+ * Renders an array of data objects into a target container using a provided template function.
+ *
+ * @param {Object} params - The parameters object.
+ * @param {Array<Object>} params.data - The array of data items to render.
+ * @param {(item: Object) => string} params.template - A function that takes a data item and returns an HTML string.
+ * @param {string} params.target - A CSS selector string for the container element where the HTML should be injected.
+ * @returns {void}
+ *
+ * @example
+ * // Example usage:
+ * utl_renderHTML({
+ *   data: staff,
+ *   template: (member) => html`<div class="col">${staffCard(member, "../")}</div>`,
+ *   target: "#staff-container",
+ * });
+ */
+const utl_renderObjects = ({ data, template, target }) => {
+    data.forEach((item) => {
+        // If target is a function, resolve it for this item
+        const resolvedTarget = typeof target === "function" ? target(item) : target;
+
+        const container = document.querySelector(resolvedTarget);
+        if (!container) return;
+
+        container.insertAdjacentHTML("beforeend", template(item));
+    });
+};
+
 /* ================ EXPORT ALL UTILITIES ================ */
-export { html, utl_pageId, utl_setFooterYear, utl_ehElements, utl_ehCarouselItems, utl_handleModalClose, utl_parseData, utl_anchorScrollOffset, utl_toggleCookiesAlert };
+export { html, utl_pageId, utl_setFooterYear, utl_ehElements, utl_ehCarouselItems, utl_handleModalClose, utl_parseData, utl_anchorScrollOffset, utl_toggleCookiesAlert, utl_renderObjects };

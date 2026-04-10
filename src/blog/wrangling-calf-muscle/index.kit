@@ -2,6 +2,7 @@
 <!-- $pageTitle = Wrangling the Calf Muscle |  -->
 <!-- $path = ../../ -->
 <!-- $pageId = wrangling-calf-muscle -->
+<!-- $pageScript = <script type="module" src="../../assets/js/blog-post.js"></script> -->
 <!-- @import ../../assets/partials/header -->
 <!-- $blog = active -->
 </head>
@@ -47,19 +48,9 @@
                     <aside class="col-lg-3">
                         <div class="blog-sidebar">
                             <h3 class="h5 mb-3">Recent Articles</h3>
-                            <ul class="list-unstyled">
-                                <li class="small mb-4">
-                                    <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="#">
-                                        <img class="img-fluid" src="../../assets/media/faq/faq-header-lg.webp" alt="">
-                                        Why Your Shoulder Still Hurts
-                                    </a>
-                                </li>
-                                <li class="small mb-2">
-                                    <a class="link-underline link-underline-opacity-0 link-underline-opacity-100-hover" href="#">
-                                        <img class="img-fluid" src="../../assets/media/services-and-rates/services-and-rates-header-lg.webp" alt="">
-                                        Wrangling The Calf Muscle
-                                    </a>
-                                </li>
+                            <ul id="recent-articles" class="list-unstyled row row-cols-1 row-cols-sm-2 row-cols-lg-1">
+                                <!-- Recent posts rendered via js -->
+                                <!-- [[src/assets/js/data/_blog-posts.js]] -->
                             </ul>
                         </div>
                     </aside>

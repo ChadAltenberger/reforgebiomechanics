@@ -83,14 +83,9 @@
     }
 }
 
+/* ==================== FOCUS STYLES ==================== */
 @mixin focus-styles() {
     outline: 2px solid $focus-color !important;
     outline-offset: 1.5px !important;
     opacity: 1 !important;
-    box-shadow:
-        0 0 $white,
-        0 0 $white,
-        0 0 0 1px $white,
-        0 0 0 1.5px $white,
-        0 0 $white !important;
 }

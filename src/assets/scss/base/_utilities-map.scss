@@ -1,105 +1,148 @@
-// Custom opacity value map
-$opacity-values: (
-    0: 0,
-    5: 0.05,
-    10: 0.1,
-    15: 0.15,
-    20: 0.2,
-    25: 0.25,
-    30: 0.3,
-    35: 0.35,
-    40: 0.4,
-    45: 0.45,
-    50: 0.5,
-    55: 0.55,
-    60: 0.6,
-    65: 0.65,
-    70: 0.7,
-    75: 0.75,
-    80: 0.8,
-    85: 0.85,
-    90: 0.9,
-    95: 0.95,
-    100: 1,
+@use "sass:map";
+
+/* ================ VALUE MAP GENERATORS ================ */
+// Reusable value maps used across utilities
+// Initialize empty maps that will be populated via loops
+$percentage-positive: ();
+$percentage-negative: ();
+$opacity-values: ();
+$ls-values: ();
+$cols-values: ();
+
+// Generate positive percentage values (0–100)
+// e.g. w-50, start-25, top-lg-75, etc.
+@for $i from 0 through 100 {
+    $percentage-positive: map.set($percentage-positive, $i, $i * 1%);
+}
+
+// Generate negative percentage values (n1–n100)
+// e.g. start-n50, top-lg-n25, etc.
+@for $i from 1 through 100 {
+    $percentage-negative: map.set($percentage-negative, n#{$i}, -$i * 1%);
+}
+
+// Generate opacity values (0–100 step 5)
+// Converts to decimal scale (0 → 1)
+// Example: opacity-25 → opacity: 0.25
+@for $i from 0 through 100 {
+    $opacity-values: map.set($opacity-values, $i * 5, ($i * 5) / 100);
+}
+
+// Generate px values (0–15) for letter-spacing
+// e.g. ls-1, ls-15, ls-lg-3, etc.
+@for $i from 0 through 15 {
+    $ls-values: map.set($ls-values, $i, $i * 1px);
+}
+
+// Generate values (1–12)
+// e.g. cols-1, cols-lg-4, etc.
+@for $i from 1 through 12 {
+    $cols-values: map.set($cols-values, $i, $i * 1);
+}
+
+// Combine positive + negative percentages
+// Used by positioning utilities
+$percentage-values: map.merge(
+    $percentage-positive,
+    map.merge(
+        $percentage-negative,
+        (
+            auto: auto,
+        )
+    )
 );
 
-// Custom percentage value map
-$percentage-values: (
-    0: 0,
-    5: 5%,
-    10: 10%,
-    15: 15%,
-    20: 20%,
-    25: 25%,
-    30: 30%,
-    35: 35%,
-    40: 40%,
-    45: 45%,
-    50: 50%,
-    55: 55%,
-    60: 60%,
-    65: 65%,
-    70: 70%,
-    75: 75%,
-    80: 80%,
-    85: 85%,
-    90: 90%,
-    95: 95%,
-    n5: -5%,
-    n10: -10%,
-    n15: -15%,
-    n20: -20%,
-    n25: -25%,
-    n30: -30%,
-    n35: -35%,
-    n40: -40%,
-    n45: -45%,
-    n50: -50%,
-    n55: -55%,
-    n60: -60%,
-    n65: -65%,
-    n70: -70%,
-    n75: -75%,
-    n80: -80%,
-    n85: -85%,
-    n90: -90%,
-    n95: -95%,
-    100: 100%,
-    auto: auto,
+// Additional values for width/height
+$dimension-values: map.merge(
+    $percentage-values,
+    (
+        fit-content: fit-content,
+        max-content: max-content,
+        fill: -webkit-fill-available,
+    )
 );
 
-// Extend Bootstrap utilities
-$utilities: map-merge(
+/* =================== UTILITY GROUPS =================== */
+// Will be extended with additional behavior via loops
+$dimension-utils: ("width", "height");
+$responsive-utils: ("border", "border-width", "border-top", "border-end", "border-bottom", "border-start", "border-color", "font-size", "position"); // Needs only 'responsive: true' addition
+$percentage-position-utils: ("top", "bottom", "start", "end");
+$rounded-utils: ("rounded", "rounded-top", "rounded-end", "rounded-bottom", "rounded-start");
+
+// Extend percentage values for width/height
+@each $utility in $dimension-utils {
+    $utilities: map.merge(
+        $utilities,
+        (
+            #{$utility}: map.merge(
+                    map.get($utilities, $utility),
+                    (
+                        responsive: true,
+                        values: $dimension-values,
+                    )
+                )
+        )
+    );
+}
+
+// Enable responsive variants for selected Bootstrap utilities
+@each $utility in $responsive-utils {
+    $utilities: map.merge(
+        $utilities,
+        (
+            #{$utility}: map.merge(
+                    map.get($utilities, $utility),
+                    (
+                        responsive: true,
+                    )
+                )
+        )
+    );
+}
+
+// Extend positioning utilities to support percentage offsets
+@each $utility in $percentage-position-utils {
+    $utilities: map.merge(
+        $utilities,
+        (
+            #{$utility}: map.merge(
+                    map.get($utilities, $utility),
+                    (
+                        responsive: true,
+                        values: $percentage-values,
+                    )
+                )
+        )
+    );
+}
+
+// Extend rounded(border-radius) values for larger radii
+@each $utility in $rounded-utils {
+    $utilities: map.merge(
+        $utilities,
+        (
+            #{$utility}: map.merge(
+                    map.get($utilities, $utility),
+                    (
+                        responsive: true,
+                        values: map.merge(
+                                map.get(map.get($utilities, $utility), "values"),
+                                (
+                                    6: 3rem,
+                                    7: 4rem,
+                                    8: 6rem,
+                                )
+                            ),
+                    )
+                )
+        )
+    );
+}
+
+/* =================== MAIN MAP MERGE =================== */
+$utilities: map.merge(
     $utilities,
     (
-        "width": map-merge(
-                map-get($utilities, "width"),
-                (
-                    responsive: true,
-                    values: map-merge(
-                            $percentage-values,
-                            (
-                                fit-content: fit-content,
-                                max-content: max-content,
-                                fill: -webkit-fill-available,
-                            )
-                        ),
-                )
-            ),
-        "height": map-merge(
-                map-get($utilities, "height"),
-                (
-                    responsive: true,
-                    values: map-merge(
-                            $percentage-values,
-                            (
-                                fit-content: fit-content,
-                                max-content: max-content,
-                                fill: -webkit-fill-available,
-                            )
-                        ),
-                )
-            ),
         "font-family": (
             property: font-family,
             class: font,
@@ -107,14 +150,8 @@ $utilities: map-merge(
                 "primary": $font-primary,
             ),
         ),
-        "font-size": map-merge(
-                map-get($utilities, "font-size"),
-                (
-                    responsive: true,
-                )
-            ),
-        "line-height": map-merge(
-                map-get($utilities, "line-height"),
+        "line-height": map.merge(
+                map.get($utilities, "line-height"),
                 (
                     responsive: true,
                     values: (
@@ -157,7 +194,7 @@ $utilities: map-merge(
                 "bg-opacity": 1,
             ),
             responsive: true,
-            values: map-merge(
+            values: map.merge(
                     $utilities-bg-colors,
                     (
                         "primary-bg": rgba(var(--#{$prefix}primary-bg-rgb), var(--#{$prefix}bg-opacity)),
@@ -174,91 +211,12 @@ $utilities: map-merge(
             responsive: true,
             values: $opacity-values,
         ),
-        "border": map-merge(
-                map-get($utilities, "border"),
+        "translate-middle": map.merge(
+                map.get($utilities, "translate-middle"),
                 (
-                    responsive: true,
-                )
-            ),
-        "border-width": map-merge(
-                map-get($utilities, "border-width"),
-                (
-                    responsive: true,
-                )
-            ),
-        "border-top": map-merge(
-                map-get($utilities, "border-top"),
-                (
-                    responsive: true,
-                )
-            ),
-        "border-end": map-merge(
-                map-get($utilities, "border-end"),
-                (
-                    responsive: true,
-                )
-            ),
-        "border-start": map-merge(
-                map-get($utilities, "border-start"),
-                (
-                    responsive: true,
-                )
-            ),
-        "border-bottom": map-merge(
-                map-get($utilities, "border-bottom"),
-                (
-                    responsive: true,
-                )
-            ),
-        "border-color": map-merge(
-                map-get($utilities, "border-color"),
-                (
-                    responsive: true,
-                )
-            ),
-        "position": map-merge(
-                map-get($utilities, "position"),
-                (
-                    responsive: true,
-                )
-            ),
-        "top": map-merge(
-                map-get($utilities, "top"),
-                (
-                    responsive: true,
-                    values: $percentage-values,
-                )
-            ),
-        "bottom": map-merge(
-                map-get($utilities, "bottom"),
-                (
-                    responsive: true,
-                    values: $percentage-values,
-                )
-            ),
-        "start": map-merge(
-                map-get($utilities, "start"),
-                (
-                    responsive: true,
-                    values: $percentage-values,
-                )
-            ),
-        "end": map-merge(
-                map-get($utilities, "end"),
-                (
-                    responsive: true,
-                    values: $percentage-values,
-                )
-            ),
-        "translate-middle": map-merge(
-                map-get($utilities, "translate-middle"),
-                (
-                    values: map-merge(
-                            map-get(map-get($utilities, "translate-middle"), "values"),
+                    values: map.merge(
+                            map.get(map.get($utilities, "translate-middle"), "values"),
                             (
-                                null: translate(-50%, -50%),
-                                x: translateX(-50%),
-                                y: translateY(-50%),
                                 none: translate(0, 0),
                             )
                         ),
@@ -285,7 +243,7 @@ $utilities: map-merge(
                 3: 3,
             ),
         ),
-        // CUSTOM UTILITIES
+        /* ================== CUSTOM UTILITIES ================== */
         "flip": (
                 property: transform,
                 class: flip,
@@ -295,51 +253,32 @@ $utilities: map-merge(
                     y: scaleY(-1),
                 ),
             ),
+        "scale": (
+            property: transform,
+            class: scale,
+            state: hover,
+            responsive: true,
+            values: (
+                1: scale(1.05),
+                2: scale(1.1),
+            ),
+        ),
         "ls": (
             property: letter-spacing,
             class: ls,
             responsive: true,
-            values: (
-                0: 0,
-                1: 1px,
-                2: 2px,
-                3: 3px,
-                4: 4px,
-                5: 5px,
-                6: 6px,
-                7: 7px,
-                8: 8px,
-                9: 9px,
-                10: 10px,
-                11: 11px,
-                12: 12px,
-                13: 13px,
-                14: 14px,
-                15: 15px,
-            ),
+            values: $ls-values,
         ),
         "cols": (
             property: columns,
             class: cols,
             responsive: true,
-            values: (
-                1: 1,
-                2: 2,
-                3: 3,
-                4: 4,
-                5: 5,
-                6: 6,
-                7: 7,
-                8: 8,
-                9: 9,
-                10: 10,
-                11: 11,
-                12: 12,
-            ),
+            values: $cols-values,
         ),
     )
 );
 
+// Add pointer + transition behavior to all hover utilities
 [class*="-hover"] {
     cursor: pointer;
     transition:

@@ -2,9 +2,9 @@
 <!-- $pageTitle = Blog |  -->
 <!-- $path = ../ -->
 <!-- $pageId = blog -->
+<!-- $pageScript = <script type="module" src="../assets/js/blog.js"></script> -->
 <!-- @import ../assets/partials/header -->
-<link rel="preload" as="image" href="../assets/media/blog/blog-header.webp">
-<!-- $headerImg = assets/media/blog/blog-header -->
+<!-- $headerImg = assets/media/pages/blog/blog-header -->
 <!-- $headerTitle = Blog -->
 <!-- $services = active -->
 </head>
@@ -17,39 +17,14 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xxl2-10">
-                        <div class="card bg-primary accent-container text-white shadow">
-                            <div class="card-body p-0">
-                                <div class="row">
-                                    <div class="col-lg-6 col-xl-7">
-                                        <img class="img-fluid h-100 object-fit-cover" src="../assets/media/blog/scapula-thumbnail.webp" alt="Man holding someone's shoulder">
-                                    </div>
-                                    <div class="col-lg-6 col-xl-5">
-                                        <div class="h-100 p-4 align-content-center">
-                                            <small class="opacity-80">March 2, 2026</small>
-                                            <h2 class="text-white">Scapula 101: The Hidden Key to Shoulder Health</h2>
-                                            <p class="small pe-1">The knowledge gap that many people share in regards to what the scapula is and what it does can be...</p>
-                                            <a class="btn btn-sm btn-secondary" href="scapula-101/index.html">
-                                                <div>View Article</div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="featured-post" class="row">
+                            <!-- Featured post loaded via js -->
+                            <!-- [[src/assets/js/data/_blog-posts.js]] -->
                         </div>
-                        <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mt-5">
-                            <div class="col">
-                                <div class="card">
-                                    <img class="card-img-top" src="../assets/media/index/mission-image.webp" alt="">
-                                    <div class="card-body">
-                                        <small class="opacity-80">March 9, 2026</small>
-                                        <h2 class="h6">Wrangling the Calf Muscle</h2>
-                                        <a class="btn btn-sm btn-primary" href="scapula-101/index.html">
-                                            <div>View Article</div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+                        <div id="older-posts" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mt-5">
+                            <!-- Older posts loaded via js -->
+                            <!-- [[src/assets/js/data/_blog-posts.js]] -->
+                        </div>
                     </div>
                 </div>
             </div>
